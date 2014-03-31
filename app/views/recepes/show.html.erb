@@ -1,0 +1,25 @@
+﻿<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Название:</b>
+  <%= @recepe.name %>
+</p>
+
+<p>
+  <b>Тип:</b>
+  <%= @recepe.type.name %>
+</p>
+
+<p>
+  <b>Описание:</b>
+  <%= @recepe.description %>
+</p>
+
+<p>
+  <b>Ингредиенты:</b>
+  <%= @recepe.ingredients %>
+</p>
+
+
+<%= link_to 'Edit', edit_recepe_path(@recepe) %> |
+<%= link_to 'Back', recepes_path %>

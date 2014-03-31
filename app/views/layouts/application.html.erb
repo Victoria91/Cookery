@@ -1,0 +1,35 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+  <title>Моя кулинарная книга</title>
+  <%= stylesheet_link_tag    "application", media: "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<div class="search" id="search">Поиск: <input type="search" placeholder="Искать..."/></div>
+	<header>Моя кулинарная книга</header>
+	
+	<aside>
+		<nav>
+			<ul>
+				<li><a href="">Item 1</a></li>
+				<li><a href="">Item 2</a></li>
+				<li><a href="">Item 3</a></li>
+				<li><a href="">Item 4</a></li>
+				<li><a href="">Item 5</a></li>
+				<li><a href="">Item 6</a></li>
+			</ul>
+		</nav>
+	</aside>
+	
+	<main>
+		<%= yield %>
+	</main>
+
+	<footer>
+		<small>2014 © Быкова Виктория</small>
+	</footer>
+
+	</body>
+</html>

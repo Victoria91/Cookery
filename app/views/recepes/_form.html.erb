@@ -1,0 +1,33 @@
+﻿<%= form_for(@recepe) do |f| %>
+  <% if @recepe.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@recepe.errors.count, "error") %> prohibited this recepe from being saved:</h2>
+
+      <ul>
+      <% @recepe.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :Название %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :Тип %><br />
+    <%= f.number_field :type_id %>
+  </div>
+  <div class="field">
+    <%= f.label :Описание %><br />
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :Ингредиенты %><br />
+    <%= f.text_area :ingredients %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
