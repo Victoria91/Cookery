@@ -80,4 +80,9 @@ class RecepesController < ApplicationController
       format.json { head :ok }
     end
   end
+
+  def pic
+    @picture = Recepe.find(params[:id])
+    send_data(@picture.picture, type: @picture.content_type, disposition: "inline")
+  end
 end

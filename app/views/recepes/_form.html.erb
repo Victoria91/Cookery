@@ -1,4 +1,4 @@
-﻿<%= form_for(@recepe) do |f| %>
+﻿<%= form_for(@recepe, html: {multipart: true}) do |f| %>
   <% if @recepe.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@recepe.errors.count, "error") %> prohibited this recepe from being saved:</h2>
@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :Тип %><br />
-    <%= f.number_field :type_id %>
+    <%= f.select :type_id, Type.all.collect {|c| [ c.name, c.id ]},{}%>
   </div>
   <div class="field">
     <%= f.label :Описание %><br />
@@ -26,6 +26,10 @@
   <div class="field">
     <%= f.label :Ингредиенты %><br />
     <%= f.text_area :ingredients %>
+  </div>
+  <div class="field">
+    <%= f.label :Фотография %><br />
+    <%= f.file_field("uploaded_picture") %>
   </div>
   <div class="actions">
     <%= f.submit %>

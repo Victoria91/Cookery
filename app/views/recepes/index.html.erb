@@ -3,20 +3,15 @@
 <table>
   <tr>
     <th>Название</th>
-    <th>Тип</th>
-    <th>Описание</th>
     <th>Ингредиенты</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @recepes.each do |recepe| %>
   <tr>
-    <td><%= recepe.name %></td>
-    <td><%= recepe.type.name %></td>
-    <td><%= recepe.description %></td>
-    <td><%= recepe.ingredients %></td>
+    <td><%= recepe.name %><i><%= recepe.type_id %></i><br/><img src="<%= url_for(:action => 'pic', id: recepe.id) %>"/></td>
+    <td><%= truncate(recepe.ingredients,length:20) %></td>
     <td><%= link_to 'Показать', recepe %></td>
     <td><%= link_to 'Редактировать', edit_recepe_path(recepe) %></td>
     <td><%= link_to 'Удалить', recepe, confirm: 'Вы уверены?', method: :delete %></td>

@@ -1,11 +1,10 @@
 Cookery::Application.routes.draw do
+  get "recepes/pic"
+  
   resources :recepes
   
-	resources :recepes do
-       member do
-         post 'index'
-	   end
-	end
+
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
