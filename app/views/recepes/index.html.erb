@@ -1,24 +1,17 @@
 ﻿<h1>Просмотр рецептов</h1>
-
-<table>
-  <tr>
-    <th>Название</th>
-    <th>Ингредиенты</th>
-    <th></th>
-    <th></th>
-  </tr>
+<div id="new"><%= link_to 'Добавить рецепт', new_recepe_path %></div>
 
 <% @recepes.each do |recepe| %>
-  <tr>
-    <td><%= recepe.name %><i><%= recepe.type_id %></i><br/><img src="<%= url_for(:action => 'pic', id: recepe.id) %>"/></td>
-    <td><%= truncate(recepe.ingredients,length:20) %></td>
-    <td><%= link_to 'Показать', recepe %></td>
-    <td><%= link_to 'Редактировать', edit_recepe_path(recepe) %></td>
-    <td><%= link_to 'Удалить', recepe, confirm: 'Вы уверены?', method: :delete %></td>
-  </tr>
+
+    <div class="meal"><%= recepe.name %><br/><img src="<%= url_for(action: :pic, id: recepe.id) %>"/></div>
+    <div class="ing"><%= sanitize(recepe.ingredients) %><br/>
+    <%= link_to 'Показать', recepe %>
+    <%= link_to 'Редактировать', edit_recepe_path(recepe) %>
+    <%= link_to 'Удалить', recepe, confirm: 'Вы уверены?', method: :delete %>
+    </div>
 <% end %>
-</table>
+
 
 <br />
 
-<%= link_to 'Добавить рецепт', new_recepe_path %>
+

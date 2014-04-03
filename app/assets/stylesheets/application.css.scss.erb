@@ -6,6 +6,10 @@
  *= require_tree . 
 */
 
+* {
+  transition: background .5s;
+  box-sizing: border-box;
+}
 
 header{
 	margin:auto;
@@ -19,10 +23,16 @@ header{
   border-radius: 5px;
 }
 
-td img {
+.meal img {
    border-radius: 5px;
    height:150px;
    width:250px;
+}
+
+.meal, .ing {
+  float: left;
+  display: inline;
+  margin-right: 20px;
 }
 
 
@@ -33,18 +43,16 @@ td img {
 	color:white;
 }
 
+#new {
+  float: clear both;
+}
+
 body{
 	background-image: url('grid.png');
 }
 
-main {
-	float: left;
-	display: inline;
-	margin-right: 20px;
-}
-
-
 aside {
+  height:900px;
 	padding-top: 30px;
 	float: left;
 	padding-right: 20px;

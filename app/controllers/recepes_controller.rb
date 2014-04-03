@@ -3,6 +3,9 @@ class RecepesController < ApplicationController
   # GET /recepes.json
   def index
     @recepes = Recepe.all
+    @recepes.each do |r|
+      r.ingredients.gsub!(';','<br/>')
+    end
 
     respond_to do |format|
       format.html # index.html.erb
