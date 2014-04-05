@@ -1,5 +1,9 @@
 ﻿<p id="notice"><%= notice %></p>
 
+
+<p class="meal">
+   <img src="<%= url_for(action: :pic, id: @recepe.id) %>"/>
+</p>
 <p>
   <b>Название:</b>
   <%= @recepe.name %>

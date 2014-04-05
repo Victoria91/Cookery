@@ -7,18 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<div class="search" id="search">Поиск: <input type="search" placeholder="Искать..."/></div>
+
+	<%= form_tag do %>
+		<div class="search" id="search">Поиск: <%= search_field_tag :search %></div>
+		<%= submit_tag 'Искать'%>
+	<% end %>
+
 	<header>Моя кулинарная книга</header>
-	
 	<aside>
 		<nav>
 			<ul>
-				<li><a href="">Item 1</a></li>
-				<li><a href="">Item 2</a></li>
-				<li><a href="">Item 3</a></li>
-				<li><a href="">Item 4</a></li>
-				<li><a href="">Item 5</a></li>
-				<li><a href="">Item 6</a></li>
+				<li><%= link_to "На главную", recepes_path %></li>
+				<li><a href="">Поиск по рецептам</a></li>
+				<li><a href="">Контакты</a></li>
+				<li><a href="">Регистрация</a></li>
+				<li><a href="">Войти</a></li>
 			</ul>
 		</nav>
 	</aside>

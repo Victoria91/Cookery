@@ -1,15 +1,27 @@
-﻿<h1>Просмотр рецептов</h1>
+﻿
+
+<h1>Просмотр рецептов</h1>
 <div id="new"><%= link_to 'Добавить рецепт', new_recepe_path %></div>
 
-<% @recepes.each do |recepe| %>
+<table>
+	<% if @recepes %>
+	<% @recepes.each_with_index do |recepe,i| %>
+	  	  <% if i % 2 == 0 %>
+	      	<tr>
+	      <% end %>
+	        <td class="meal"><%= i %><%= recepe.name %><br/><img src="<%= url_for(action: :pic, id: recepe.id) %>"/></td>
+	        <td><%= sanitize(recepe.ingredients) %><br/>
+	        <%= link_to 'Показать', recepe %>
+	        <%= link_to 'Редактировать', edit_recepe_path(recepe) %>
+	        <%= link_to 'Удалить', recepe, confirm: 'Вы уверены?', method: :delete %>
+	        </td>
+	      <% if i % 2 != 0 %>
+	 		</tr>
+	      <% end %>
+	<% end %>
 
-    <div class="meal"><%= recepe.name %><br/><img src="<%= url_for(action: :pic, id: recepe.id) %>"/></div>
-    <div class="ing"><%= sanitize(recepe.ingredients) %><br/>
-    <%= link_to 'Показать', recepe %>
-    <%= link_to 'Редактировать', edit_recepe_path(recepe) %>
-    <%= link_to 'Удалить', recepe, confirm: 'Вы уверены?', method: :delete %>
-    </div>
-<% end %>
+	<% end %>
+</table>
 
 
 <br />

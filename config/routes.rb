@@ -1,6 +1,8 @@
 Cookery::Application.routes.draw do
   get "recepes/pic"
-  
+  post "recepes/index"
+
+
   resources :recepes
   
 

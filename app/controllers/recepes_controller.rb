@@ -2,10 +2,14 @@ class RecepesController < ApplicationController
   # GET /recepes
   # GET /recepes.json
   def index
-    @recepes = Recepe.all
-    @recepes.each do |r|
-      r.ingredients.gsub!(';','<br/>')
+    if params[:search]
+       @recepes = Recepe.where("name like '%#{params[:search]}%'")
+    else
+      @recepes = Recepe.all
     end
+   # @recepes.each do |r|
+   #   r.ingredients.gsub!(';','<br/>')
+ #   end
 
     respond_to do |format|
       format.html # index.html.erb
