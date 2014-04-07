@@ -9,7 +9,7 @@
 	  	  <% if i % 2 == 0 %>
 	      	<tr>
 	      <% end %>
-	        <td class="meal"><%= i %><%= recepe.name %><br/><img src="<%= url_for(action: :pic, id: recepe.id) %>"/></td>
+	        <td class="meal"><%= recepe.name %><br/><img src="<%= url_for(action: :pic, id: recepe.id) %>"/></td>
 	        <td><%= sanitize(recepe.ingredients) %><br/>
 	        <%= link_to 'Показать', recepe %>
 	        <%= link_to 'Редактировать', edit_recepe_path(recepe) %>

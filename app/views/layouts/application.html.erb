@@ -18,7 +18,7 @@
 		<nav>
 			<ul>
 				<li><%= link_to "На главную", recepes_path %></li>
-				<li><a href="">Поиск по рецептам</a></li>
+				<li><a href="">Поиск по рецептам</a><div class="li_search" hidden><br/>Выберите раздел<%= select_tag :type_id, Type.all.collect {|c| [ c.name, c.id ]},{} %></div></li>
 				<li><a href="">Контакты</a></li>
 				<li><a href="">Регистрация</a></li>
 				<li><a href="">Войти</a></li>
