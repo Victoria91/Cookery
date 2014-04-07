@@ -1,4 +1,4 @@
-﻿/*
+/*
  * This is a manifest file that'll automatically include all the stylesheets available in this directory
  * and any sub-directories. You're free to add application-wide styles to this file and they'll appear at
  * the top of the compiled file, but it's generally better to create a new file per style scope.
@@ -35,7 +35,9 @@ header{
   margin-right: 20px;
 }
 
-
+.ing {
+  width:10px;
+}
 .search{
 	margin-top: 40px;
 	margin-right: 210px;
@@ -63,7 +65,7 @@ aside {
     box-shadow: 0 5px 5px rgba(0,0,0,.2);
     list-style: none;
   
-    li a {
+    li a, li {
       text-decoration: none;
       color: #eee;
       background: #bbb;
@@ -75,11 +77,15 @@ aside {
       margin-bottom: 1px;
     }
 
-    li a:hover {
+    li a {
+      color:white;
+    }
+
+    :hover {
       background: #aaa;
     }
 
-    li a:active {
+    :active {
       background: #ccc;
     }
   }

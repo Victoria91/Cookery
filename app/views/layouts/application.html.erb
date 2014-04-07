@@ -9,19 +9,19 @@
 <body>
 
 	<%= form_tag do %>
-		<div class="search" id="search">Поиск: <%= search_field_tag :search %></div>
-		<%= submit_tag 'Искать'%>
+		<div class="search" id="search">Поиск: <%= search_field_tag :search %>
+		<%= submit_tag 'Искать', class:"search_button"%></div>
 	<% end %>
 
 	<header>Моя кулинарная книга</header>
 	<aside>
 		<nav>
 			<ul>
-				<li><%= link_to "На главную", recepes_path %></li>
-				<li><a href="">Поиск по рецептам</a><div class="li_search" hidden><br/>Выберите раздел<%= select_tag :type_id, Type.all.collect {|c| [ c.name, c.id ]},{} %></div></li>
-				<li><a href="">Контакты</a></li>
-				<li><a href="">Регистрация</a></li>
-				<li><a href="">Войти</a></li>
+				<li color: '#eee'><%= link_to "На главную", recepes_path %></li>
+				<li id="li_search">Поиск по рецептам<div id="rec_search" hidden><br/>Выберите раздел<%= select_tag :type_id, Type.all.collect {|c| [ c.name, c.id ]},{} %></div></li>
+				<li>Контакты</li>
+				<li>Регистрация</li>
+				<li>Войти</li>
 			</ul>
 		</nav>
 	</aside>
