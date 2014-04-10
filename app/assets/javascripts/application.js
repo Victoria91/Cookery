@@ -10,6 +10,6 @@
 
 $(document).ready(function(){
 	$('#li_search').on('click',function(){
-	 // this.remove();
+		$("#search_form").slideToggle();
 	});
 });

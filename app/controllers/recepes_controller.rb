@@ -7,6 +7,7 @@ class RecepesController < ApplicationController
     else
       @recepes = Recepe.all
     end
+    @types = Type.all
    # @recepes.each do |r|
    #   r.ingredients.gsub!(';','<br/>')
  #   end
