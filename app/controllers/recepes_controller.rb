@@ -25,6 +25,8 @@ class RecepesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @recepe }
+      format.xml { render xml: @recepe }
+
     end
   end
 
@@ -85,6 +87,7 @@ class RecepesController < ApplicationController
     respond_to do |format|
       format.html { redirect_to recepes_url }
       format.json { head :ok }
+      format.js
     end
   end
 
