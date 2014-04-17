@@ -1,17 +1,17 @@
 class RecepesController < ApplicationController
   # GET /recepes
   # GET /recepes.json
+  before_filter :set_types
+
   def index
     if params[:search]
-       @recepes = Recepe.where("name like '%#{params[:search]}%'")
+      @recepes = Recepe.where("name like '%#{params[:search]}%'")
+    elsif params[:type_id]
+      @recepes = Recepe.where("type_id = '#{params[:type_id]}'")
     else
       @recepes = Recepe.all
     end
-    @types = Type.all
-   # @recepes.each do |r|
-   #   r.ingredients.gsub!(';','<br/>')
- #   end
-
+  
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @recepes }
@@ -36,6 +36,8 @@ class RecepesController < ApplicationController
   def new
     @recepe = Recepe.new
 
+   @types = Type.all
+  
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @recepe }
@@ -95,5 +97,9 @@ class RecepesController < ApplicationController
   def pic
     @picture = Recepe.find(params[:id])
     send_data(@picture.picture, type: @picture.content_type, disposition: "inline")
+  end
+
+  def set_types
+    @types = Type.all
   end
 end

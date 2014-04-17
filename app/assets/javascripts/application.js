@@ -12,4 +12,12 @@ $(document).ready(function(){
 	$('#li_search').on('click',function(){
 		$("#search_form").slideToggle();
 	});
+	$('#type_id').on('change',function() {
+		$.ajax('recepes?type_id='+$('#type_id').val(), {
+			success: function(response) {
+				$('main').html(response)
+			}
+		})
+	});
+
 });
