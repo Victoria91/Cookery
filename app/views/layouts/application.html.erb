@@ -18,7 +18,7 @@
 		<nav>
 			<ul>
 				<li><%= link_to "На главную", recepes_path %></li>
-				<li><a href="#" id="li_search">Поиск по рецептам</a><div id="search_form">Выберите раздел<br/><%= select_tag :type_id, options_from_collection_for_select(@types, "id", "name") %><br/><br/></div></li>
+				<li><a href="#" id="li_search">Поиск по рецептам</a><div id="search_form">Выберите раздел<br/><%= select_tag :type_id, options_from_collection_for_select(@types, "id", "name"), include_blank: "--Все--" %><br/><br/></div></li>
 				<li><a href="#">Контакты</a></li>
 				<li><a href="#">Регистрация</a></li>
 				<li><a href="#">Войти</a></li>
