@@ -7,18 +7,3 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
-
-$(document).ready(function(){
-	$('#li_search').on('click',function(){
-		$("#search_form").slideToggle();
-		$(this).preventDefault()
-	});
-	$('#type_id').on('change',function() {
-		$.ajax('recepes?type_id='+$('#type_id').val(), {
-			success: function(response) {
-				$('body').html(response);
-			}
-		})
-	});
-});
-

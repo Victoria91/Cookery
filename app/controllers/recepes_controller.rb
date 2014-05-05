@@ -11,11 +11,10 @@ class RecepesController < ApplicationController
     else
       @recepes = Recepe.all
     end
-  
+    
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @recepes }
-      format.js
+      format.json { render json: @recepes }  
     end
   end
 

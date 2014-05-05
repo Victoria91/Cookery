@@ -4,9 +4,10 @@
 <% end %>
 	<td class="meal" id="recepe_<%=recepe.id%>"><%= recepe.name %><br/><img src="<%= url_for(action: :pic, id: recepe.id) %>"/></td>
 	<td><%= sanitize(recepe.ingredients) %><br/>
-	<%= link_to 'Показать', recepe %>
-	<%= link_to 'Редактировать', edit_recepe_path(recepe) %>
-	<%= link_to 'Удалить', recepe, confirm: 'Вы уверены?', method: :delete, remote: true %>
+	<td>
+		<%= link_to 'Показать', recepe %>
+		<%= link_to 'Редактировать', edit_recepe_path(recepe) %>
+		<%= link_to 'Удалить', recepe, confirm: 'Вы уверены?', method: :delete, remote: true %></td>
 	</td>
 <% if i % 2 != 0 %>
 	 		</tr>

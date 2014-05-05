@@ -1,0 +1,32 @@
+# Place all the behaviors and hooks related to the matching controller here.
+# All this logic will automatically be available in application.js.
+# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+
+<% environment.context_class.instance_eval { include ActionView::Helpers::UrlHelper } %>
+<% environment.context_class.instance_eval { include ActionView::Helpers::TagHelper } %>
+<% environment.context_class.instance_eval { include Rails.application.routes.url_helpers} %>
+
+
+$(document).ready ->	
+	$('#li_search').on('click', (event) ->
+		$("#search_form").slideToggle()
+		event.preventDefault()
+	)
+
+	$('#type_id').on('change', ->
+		$.getJSON('recepes?type_id='+$('#type_id').val(), (response) ->
+				$('table').html('')
+				alert response
+				str = $.map(response, (val,i) ->
+					alert(val)
+					tr = $('<tr></tr>')
+					u = val.id 
+					$("<td class='meal'>#{val.name}<br/><img src='<%= url_for(controller: :recepes, action: :pic, id: 24) %>'/></td>").appendTo(tr)
+					return tr
+				)
+				$('table').html(str);
+		)
+	)
+	
+
+
