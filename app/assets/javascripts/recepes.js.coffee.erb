@@ -15,16 +15,15 @@ $(document).ready ->
 
 	$('#type_id').on('change', ->
 		$.getJSON('recepes?type_id='+$('#type_id').val(), (response) ->
-				$('table').html('')
-				alert response
-				str = $.map(response, (val,i) ->
-					alert(val)
-					tr = $('<tr></tr>')
-					u = val.id 
-					$("<td class='meal'>#{val.name}<br/><img src='<%= url_for(controller: :recepes, action: :pic, id: 24) %>'/></td>").appendTo(tr)
-					return tr
-				)
-				$('table').html(str);
+			$('table').html('')
+			str = $.map(response, (val,i) ->
+				tr = $('<tr></tr>')
+				u = val.id
+				str = "<td class='meal' id='recepe_{val.id}'>#{val.name}<br/><img src='<%= url_for(controller: :recepes, action: :pic, id: 24) %>'/></td>"
+				$(str.replace(24,val.id)).appendTo(tr)
+				tr
+			)
+			$('table').html str;
 		)
 	)
 	

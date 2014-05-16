@@ -8,4 +8,8 @@
 		self.content_type = picture_field.content_type.chomp
 		self.picture = picture_field.read
 	end
+
+	def pic
+		return self.picture, type: self.content_type, disposition: "inline"
+	end
 end
