@@ -1,7 +1,7 @@
 ﻿class Recepe < ActiveRecord::Base
 	belongs_to :type
 	attr_accessible :id, :type_id, :name, :description, :ingredients, :content_type, :picture, :uploaded_picture
-	validates_format_of :content_type,with: /^image/,message: "--- можно выкладывать только изображения"
+	validates_presence_of :name
 
 
 	def uploaded_picture=(picture_field)
